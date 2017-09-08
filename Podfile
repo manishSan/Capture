@@ -6,7 +6,7 @@ def testing_pods
     pod 'Nimble'
     pod 'RxBlocking'
     pod 'RxTest'
-    pod 'Swinject'
+
 end
 
 target 'Capture' do
@@ -14,7 +14,7 @@ target 'Capture' do
    use_frameworks!
 
   # Pods for ProlificLibrary
-  pod 'SwiftGen'
+
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RealmSwift'
