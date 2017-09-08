@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol DetailsTableViewModelProtocol {
+    var details: Variable<[DetailProtocol]> { get }
+}
+
+struct DetailsTableViewModel: DetailsTableViewModelProtocol {
+
+    private let entry: EntryProtocol
+
+    let details = Variable([DetailProtocol]())
+
+    init(entry: EntryProtocol) {
+        self.entry = entry
+        details.value = entry.details
+    }
+}
+
