@@ -25,6 +25,11 @@ public protocol DetailProtocol {
     var key: String { get }
     /// value
     var value: String { get }
+
+    /// returns a string description
+    ///
+    /// - Returns: a String
+    func toString() -> String
 }
 
 public struct Capture {
@@ -92,5 +97,10 @@ public struct Capture {
     /// - Returns: returns a navigation controller
     public func getUI() -> UINavigationController {
         return flow.captureUI()
+    }
+
+    /// Cleans up local storage
+    public func clear() {
+        return store.cleanAll()
     }
 }

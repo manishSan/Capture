@@ -51,4 +51,8 @@ extension Detail: DetailProtocol {
     var value: String {
         return _value
     }
+
+    func toString() -> String {
+        return "{\(key): \(value)}"
+    }
 }

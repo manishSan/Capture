@@ -29,6 +29,9 @@ protocol DataStoreProtocol {
     ///   - ascending: is ascensing
     /// - Returns: Observable of array of `EntryProtocol`
     func get(nameFilter: String?, sort: Capture.EntrySort, ascending: Bool) -> Observable<[EntryProtocol]>
+
+    /// clean up local db
+    func cleanAll()
 }
 
 struct DataStore: DataStoreProtocol {
@@ -75,5 +78,17 @@ struct DataStore: DataStoreProtocol {
         }
         return Observable.collection(from: objects.sorted(byKeyPath: sort.keypath(),
                                                           ascending: ascending)).map({ $0.toArray() })
+    }
+
+    /// clean up local db
+    func cleanAll() {
+        let realm = self.realmProvider.realm()
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            fatalError("Unable to delete all objects from realm")
+        }
     }
 }

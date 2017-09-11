@@ -32,7 +32,7 @@ A small utility library to capture logs in project, also include a small table U
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'manishb24' => 'Manish.Sanwal@gmail.com' }
   #s.source           = { :git => 'https://github.com/manishb24/Capture.git', :tag => s.version.to_s }
-  s.source           = { :git => "https://github.com/manishb24/Capture.git", :commit => "19197024d4411c7b206cfdcba13fecec6fb2ada3" }
+  s.source           = { :git => "https://github.com/manishb24/Capture.git", :commit => "3db1fcc725823c456404b9d260d028e7479e7b3c" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

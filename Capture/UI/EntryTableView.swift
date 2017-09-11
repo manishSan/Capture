@@ -30,20 +30,36 @@ class EntryTableView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        setConstraints()
+
+        self.title = "All Logs"
+
+        tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryCell")
+
         viewModel
             .entries
             .asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: "EntryCell",
-                                         cellType:UITableViewCell.self)) { (_, element, cell) in
-                cell.textLabel?.text = element.name
-                cell.detailTextLabel?.text = element.timeStamp.description
+            .bind(to: tableView
+                .rx
+                .items(cellIdentifier: "EntryCell",
+                       cellType:EntryTableViewCell.self)) { (_, element, cell) in
+                        cell.textLabel?.text = element.name
+                        cell.detailTextLabel?.text = element.timeStamp.description
+
+                        if element.details.count > 0 {
+                            cell.accessoryType = .disclosureIndicator
+                        } else {
+                            cell.accessoryType = .none
+                        }
         }.addDisposableTo(disposeBag)
 
         tableView
             .rx
             .modelSelected(EntryProtocol.self)
             .subscribe(onNext: { [weak self] entry in
-                self?.viewModel.entryTapped(entry)
+                if entry.details.count > 0 {
+                    self?.viewModel.entryTapped(entry)
+                }
 
                 if let selectedRowAtIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedRowAtIndexPath, animated: true)
@@ -70,7 +86,13 @@ class EntryTableView: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         let attributes: [NSLayoutAttribute] = [.top, .bottom, .right, .left]
         NSLayoutConstraint.activate(attributes.map {
-            NSLayoutConstraint(item: tableView, attribute: $0, relatedBy: .equal, toItem: view.superview, attribute: $0, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: tableView,
+                               attribute: $0,
+                               relatedBy: .equal,
+                               toItem: view,
+                               attribute: $0,
+                               multiplier: 1,
+                               constant: 0)
         })
     }
 }

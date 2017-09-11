@@ -32,18 +32,26 @@ class DetailsTableView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        setConstraints()
+
+        self.title = "Details"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
+                                                                 target: self, action: #selector(share))
+
+        tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "DetailCell")
+
         viewModel
             .details
             .asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: "EntryCell",
-                                         cellType:UITableViewCell.self)) { (_, detail, cell) in
+            .bind(to: tableView.rx.items(cellIdentifier: "DetailCell",
+                                         cellType:EntryTableViewCell.self)) { (_, detail, cell) in
                                             cell.textLabel?.text = detail.key
                                             cell.detailTextLabel?.text = detail.value
             }.addDisposableTo(disposeBag)
 
         tableView
             .rx
-            .modelSelected(EntryProtocol.self)
+            .modelSelected(DetailProtocol.self)
             .subscribe(onNext: { [weak self] _ in
                 if let selectedRowAtIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedRowAtIndexPath, animated: true)
@@ -68,7 +76,19 @@ class DetailsTableView: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         let attributes: [NSLayoutAttribute] = [.top, .bottom, .right, .left]
         NSLayoutConstraint.activate(attributes.map {
-            NSLayoutConstraint(item: tableView, attribute: $0, relatedBy: .equal, toItem: view.superview, attribute: $0, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: tableView,
+                               attribute: $0,
+                               relatedBy: .equal,
+                               toItem: view,
+                               attribute: $0,
+                               multiplier: 1,
+                               constant: 0)
         })
+    }
+
+    @objc func share() {
+        let activityViewController = UIActivityViewController(activityItems: viewModel.shareStrings(),
+                                                              applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
     }
 }

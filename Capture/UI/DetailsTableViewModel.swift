@@ -11,6 +11,8 @@ import RxSwift
 
 protocol DetailsTableViewModelProtocol {
     var details: Variable<[DetailProtocol]> { get }
+
+    func shareStrings() -> [String]
 }
 
 struct DetailsTableViewModel: DetailsTableViewModelProtocol {
@@ -22,6 +24,10 @@ struct DetailsTableViewModel: DetailsTableViewModelProtocol {
     init(entry: EntryProtocol) {
         self.entry = entry
         details.value = entry.details
+    }
+
+    func shareStrings() -> [String] {
+        return details.value.map { $0.toString() }
     }
 }
 
