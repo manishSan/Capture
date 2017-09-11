@@ -7,31 +7,15 @@
 //
 
 import UIKit
-import Capture
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let capture = Capture()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        capture.clear()
-        addLogs()
-
-        let nc = capture.getUI()
-        self.window?.rootViewController = nc
-
         // Override point for customization after application launch.
         return true
     }
-
-    private func addLogs() {
-
-        capture.saveEntry(name: "First Log", details: nil)
-        capture.saveEntry(name: "Second Log", details: [("a key", "a small value"), ("2 key", "a long value"), ("3 key", "a mdeium value"),("4 key", "a ver very value")])
-    }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

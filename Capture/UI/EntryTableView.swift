@@ -33,6 +33,8 @@ class EntryTableView: UIViewController {
         setConstraints()
 
         self.title = "All Logs"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                                 target: self, action: #selector(close))
 
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryCell")
 
@@ -94,5 +96,8 @@ class EntryTableView: UIViewController {
                                multiplier: 1,
                                constant: 0)
         })
+    }
+    @objc func close() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

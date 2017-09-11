@@ -14,9 +14,10 @@ class ViewController: UIViewController {
     let capture = Capture()
     override func viewDidLoad() {
         super.viewDidLoad()
+        capture.clear()
         addLogs()
-        let entries = capture.getEntries(nameFilter: nil)
-        let x = 0
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,10 +26,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func addLogs() {
+    @IBAction func showLogs(_ sender: Any) {
+        let nv = capture.getUI()
+        self.present(nv, animated: true, completion: nil)
+    }
 
+    private func addLogs() {
         capture.saveEntry(name: "First Log", details: nil)
-        capture.saveEntry(name: "Second Log", details: [("a key", "a small value")])
+        capture.saveEntry(name: "Second Log", details: [("a key", "a small value"), ("2 key", "a long value"), ("3 key", "a mdeium value"),("4 key", "a ver large value")])
     }
 }
 
