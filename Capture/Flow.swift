@@ -16,14 +16,9 @@ protocol FlowProtocol {
 
 struct Flow: FlowProtocol {
 
-    let realmProvider: RealmProviderProtocol
+
 
     let dataStore: DataStoreProtocol
-
-    init() {
-        realmProvider = RealmProvider()
-        dataStore = DataStore(realmProvider: realmProvider)
-    }
 
     func captureUI() -> UINavigationController {
         let nav = UINavigationController()

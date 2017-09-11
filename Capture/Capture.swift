@@ -46,20 +46,51 @@ public struct Capture {
         }
     }
 
+    /// private data store
     private let store: DataStoreProtocol
-    private let uiClosure: () -> UINavigationController
 
-    public func saveEntry(name: String, details: [(String, String)]?) throws {
-        try store.save(entry: name, details: details)
+    /// private realm provider
+    private let realmProvider: RealmProviderProtocol
+
+    /// private flow coordinator
+    private let flow: Flow
+
+    /// initializer for Capture
+    init() {
+        realmProvider = RealmProvider()
+        store = DataStore(realmProvider: realmProvider)
+        flow = Flow(dataStore: store)
     }
 
+
+    /// Save an entry to Capture
+    ///
+    /// - Parameters:
+    ///   - name: name of entry
+    ///   - details: an optional array of keyvalue pairs as description
+
+    public func saveEntry(name: String, details: [(String, String)]?) {
+        do { try store.save(entry: name, details: details) }
+        catch { fatalError("Unable to write to local realm") }
+    }
+
+    /// get all entries from capture
+    ///
+    /// - Parameters:
+    ///   - nameFilter: a filter on name
+    ///   - sort: sort options, default set to sort on name
+    ///   - ascending: Bool parameter to indicate sort order, default set to descending
+    /// - Returns: <#return value description#>
     public func getEntries(nameFilter: String?,
                            sort: EntrySort = .name,
                            ascending: Bool = false) -> Observable<[EntryProtocol]> {
         return store.get(nameFilter: nameFilter, sort: sort, ascending: ascending)
     }
 
+    /// Get tabular UI from capture
+    ///
+    /// - Returns: returns a navigation controller
     public func getUI() -> UINavigationController {
-        return uiClosure()
+        return flow.captureUI()
     }
 }
