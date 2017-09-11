@@ -29,6 +29,7 @@ class EntryTableView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
         viewModel
             .entries
             .asObservable()
@@ -63,5 +64,13 @@ class EntryTableView: UIViewController {
         .addDisposableTo(disposeBag)
 
         viewModel.updateData()
+    }
+
+    func setConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        let attributes: [NSLayoutAttribute] = [.top, .bottom, .right, .left]
+        NSLayoutConstraint.activate(attributes.map {
+            NSLayoutConstraint(item: tableView, attribute: $0, relatedBy: .equal, toItem: view.superview, attribute: $0, multiplier: 1, constant: 0)
+        })
     }
 }
