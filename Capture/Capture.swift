@@ -56,7 +56,7 @@ public struct Capture {
     private let flow: Flow
 
     /// initializer for Capture
-    init() {
+    public init() {
         realmProvider = RealmProvider()
         store = DataStore(realmProvider: realmProvider)
         flow = Flow(dataStore: store)
