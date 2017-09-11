@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'Capture'
+  s.name             = 'LogCapture'
   s.version          = '0.1.0'
   s.summary          = 'A small utility library to capture logs in project.'
 
