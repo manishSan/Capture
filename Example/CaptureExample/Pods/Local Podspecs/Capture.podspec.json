@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/manishb24/Capture.git",
-    "commit": "3db1fcc725823c456404b9d260d028e7479e7b3c"
+    "tag": "0.1.0"
   },
   "source_files": "Capture/**/*",
   "requires_arc": true,
