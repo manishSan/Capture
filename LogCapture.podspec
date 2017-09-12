@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LogCapture'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A small utility library to capture logs in project.'
 
 # This description is used to generate tags and improve search results.
