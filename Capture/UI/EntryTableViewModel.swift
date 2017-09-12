@@ -35,7 +35,7 @@ struct EntryTableViewModel: EntryTableViewModelProtocol {
 
     func updateData() {
         dataStore.get(nameFilter: nil,
-                      sort: .name,
+                      sort: .timestamp,
                       ascending: false)
             .observeOn(MainScheduler.instance)
             .subscribe { (event) in
