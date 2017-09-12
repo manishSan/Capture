@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## Capture
+## LogCapture
 
 Copyright (c) 2017 manishb24 <Manish.Sanwal@gmail.com>
 

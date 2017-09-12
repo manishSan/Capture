@@ -16,8 +16,6 @@ protocol FlowProtocol {
 
 struct Flow: FlowProtocol {
 
-
-
     let dataStore: DataStoreProtocol
 
     func captureUI() -> UINavigationController {

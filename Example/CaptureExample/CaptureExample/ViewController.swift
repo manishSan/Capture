@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Capture
+import LogCapture
 
 class ViewController: UIViewController {
 
@@ -33,7 +33,10 @@ class ViewController: UIViewController {
 
     private func addLogs() {
         capture.saveEntry(name: "First Log", details: nil)
-        capture.saveEntry(name: "Second Log", details: [("a key", "a small value"), ("2 key", "a long value"), ("3 key", "a mdeium value"),("4 key", "a ver large value")])
+        capture.saveEntry(name: "Second Log", details: [("a key", "a small value"),
+                                                        ("2 key", "a long value"),
+                                                        ("3 key", "a medium value"),
+                                                        ("4 key", "a very large value // Do any additional setup after loading the view, typically from a nib. // Do any additional setup after loading the view, typically from a nib.")])
     }
 }
 

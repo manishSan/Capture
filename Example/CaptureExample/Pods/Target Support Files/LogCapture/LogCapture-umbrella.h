@@ -12,6 +12,6 @@
 
 #import "Capture.h"
 
-FOUNDATION_EXPORT double CaptureVersionNumber;
-FOUNDATION_EXPORT const unsigned char CaptureVersionString[];
+FOUNDATION_EXPORT double LogCaptureVersionNumber;
+FOUNDATION_EXPORT const unsigned char LogCaptureVersionString[];
 

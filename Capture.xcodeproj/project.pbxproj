@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38916C681F68222700AD54E2 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38916C671F68222700AD54E2 /* EntryTableViewCell.swift */; };
 		38B409A51F630A2900713025 /* Capture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B4099B1F630A2900713025 /* Capture.framework */; };
 		38B409AA1F630A2900713025 /* CaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B409A91F630A2900713025 /* CaptureTests.swift */; };
 		38B409AC1F630A2900713025 /* Capture.h in Headers */ = {isa = PBXBuildFile; fileRef = 38B4099E1F630A2900713025 /* Capture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		20D395F7E57B7147E1469F00 /* Pods-Capture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capture/Pods-Capture.debug.xcconfig"; sourceTree = "<group>"; };
+		38916C671F68222700AD54E2 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		38B4099B1F630A2900713025 /* Capture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Capture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B4099E1F630A2900713025 /* Capture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		38B4099F1F630A2900713025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		38DD804D1F6322AF007B37E0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				38916C671F68222700AD54E2 /* EntryTableViewCell.swift */,
 				38DD804E1F6322CB007B37E0 /* EntryTableView.swift */,
 				38DD80501F6323B6007B37E0 /* EntryTableViewModel.swift */,
 				38DD80521F632CC3007B37E0 /* DetailsTableView.swift */,
@@ -241,7 +244,7 @@
 				};
 			};
 			buildConfigurationList = 38B409951F630A2900713025 /* Build configuration list for PBXProject "Capture" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -402,6 +405,7 @@
 				38DD80511F6323B6007B37E0 /* EntryTableViewModel.swift in Sources */,
 				38DD804F1F6322CB007B37E0 /* EntryTableView.swift in Sources */,
 				38DD80471F630DD9007B37E0 /* DataStore.swift in Sources */,
+				38916C681F68222700AD54E2 /* EntryTableViewCell.swift in Sources */,
 				38DD80571F63300E007B37E0 /* Flow.swift in Sources */,
 				38DD80491F630FF4007B37E0 /* RealmProvider.swift in Sources */,
 				38DD80531F632CC3007B37E0 /* DetailsTableView.swift in Sources */,

@@ -39,14 +39,16 @@ class DetailsTableView: UIViewController {
                                                                  target: self, action: #selector(share))
 
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "DetailCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 80
 
         viewModel
             .details
             .asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "DetailCell",
                                          cellType:EntryTableViewCell.self)) { (_, detail, cell) in
-                                            cell.textLabel?.text = detail.key
-                                            cell.detailTextLabel?.text = detail.value
+                                            cell.entry.text = detail.key
+                                            cell.detail.text = detail.value
             }.addDisposableTo(disposeBag)
 
         tableView

@@ -1,10 +1,10 @@
 {
-  "name": "Capture",
-  "version": "0.1.0",
+  "name": "LogCapture",
+  "version": "0.1.2",
   "summary": "A small utility library to capture logs in project.",
   "description": "A small utility library to capture logs in project, also include a small table UI to show those logs.",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "homepage": "https://github.com/manishb24/Capture",
   "license": {
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/manishb24/Capture.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
   "source_files": "Capture/**/*",
   "requires_arc": true,

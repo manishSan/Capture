@@ -37,6 +37,8 @@ class EntryTableView: UIViewController {
                                                                  target: self, action: #selector(close))
 
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 80
 
         viewModel
             .entries
@@ -45,24 +47,18 @@ class EntryTableView: UIViewController {
                 .rx
                 .items(cellIdentifier: "EntryCell",
                        cellType:EntryTableViewCell.self)) { (_, element, cell) in
-                        cell.textLabel?.text = element.name
-                        cell.detailTextLabel?.text = element.timeStamp.description
-
-                        if element.details.count > 0 {
-                            cell.accessoryType = .disclosureIndicator
-                        } else {
-                            cell.accessoryType = .none
-                        }
+                        cell.entry.text = element.name
+                        cell.detail.text = element.timeStamp.description
+                        cell.accessoryType = element.details.isEmpty ? .none : .disclosureIndicator
         }.addDisposableTo(disposeBag)
 
         tableView
             .rx
             .modelSelected(EntryProtocol.self)
             .subscribe(onNext: { [weak self] entry in
-                if entry.details.count > 0 {
+                if !entry.details.isEmpty {
                     self?.viewModel.entryTapped(entry)
                 }
-
                 if let selectedRowAtIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedRowAtIndexPath, animated: true)
                 }

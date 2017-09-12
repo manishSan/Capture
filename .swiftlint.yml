@@ -1,7 +1,7 @@
 disabled_rules: # rule identifiers to exclude from running
   #- superfluous_disable_command
   #- function_parameter_count
-  #- line_length
+  - line_length
   - variable_name
   #- cyclomatic_complexity
   #- nesting
@@ -17,6 +17,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - CaptureTests/Mocks
   - Capture/Resources/Generated
+  - Example
 
 type_body_length:
   - 700 #warning

@@ -67,7 +67,6 @@ public struct Capture {
         flow = Flow(dataStore: store)
     }
 
-
     /// Save an entry to Capture
     ///
     /// - Parameters:
@@ -75,8 +74,11 @@ public struct Capture {
     ///   - details: an optional array of keyvalue pairs as description
 
     public func saveEntry(name: String, details: [(String, String)]?) {
-        do { try store.save(entry: name, details: details) }
-        catch { fatalError("Unable to write to local realm") }
+        do {
+            try store.save(entry: name, details: details)
+        } catch {
+            fatalError("Unable to write to local realm")
+        }
     }
 
     /// get all entries from capture

@@ -35,7 +35,7 @@ A small utility library to capture logs in project, also include a small table U
   #s.source           = { :git => "https://github.com/manishb24/Capture.git", :commit => "3db1fcc725823c456404b9d260d028e7479e7b3c" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Capture/**/*'
 

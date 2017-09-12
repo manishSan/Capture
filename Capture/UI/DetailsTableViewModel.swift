@@ -30,4 +30,3 @@ struct DetailsTableViewModel: DetailsTableViewModelProtocol {
         return details.value.map { $0.toString() }
     }
 }
-
