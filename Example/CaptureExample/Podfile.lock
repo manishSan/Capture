@@ -1,5 +1,5 @@
 PODS:
-  - LogCapture (0.1.2):
+  - LogCapture (0.1.4):
     - RxCocoa (~> 3.6.1)
     - RxRealm (~> 0.6.0)
     - RxSwift (~> 3.6.1)
@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  LogCapture: 149659d4fc8a89d63b1ca5b85e5152f4fec9b630
+  LogCapture: 5a1a48707dbf486fa01a48eac169f6d400ea48b9
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
