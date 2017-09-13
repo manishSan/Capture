@@ -1,6 +1,0 @@
-framework module LogCapture {
-  umbrella header "LogCapture-umbrella.h"
-
-  export *
-  module * { export * }
-}
